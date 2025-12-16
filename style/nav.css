@@ -1,0 +1,173 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.nav-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  background: linear-gradient(270deg, #1aff8c, #00cfff, #ff2fd6, #1aff8c);
+  background-size: 600% 600%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientMove 6s ease infinite;
+  transition: letter-spacing 0.35s ease, transform 0.35s ease;
+}
+
+/* Hover — interação premium */
+.nav-title:hover {
+  letter-spacing: 0.25em;
+  transform: translateY(-2px);
+}
+
+/* Animação do gradiente */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 680px;
+  padding: 0 40px;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.hero-title span {
+  background: linear-gradient(135deg, #1aff8c, #00cfff, #ff2fd6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-text {
+  font-size: 1.1rem;
+  color: #d1d5db;
+  margin-bottom: 40px;
+  max-width: 520px;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #020617;
+
+  background: linear-gradient(135deg, #1aff8c, #ff2fd6);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(26, 255, 140, 0.25);
+}
+
+/* =========================
+   3D PRINTER ANIMATION
+========================= */
+.printer {
+  position: relative;
+  width: 220px;
+  height: 200px;
+  margin: 60px auto;
+  opacity: 0.4;
+}
+
+/* Estrutura */
+.printer-frame {
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+}
+
+/* Base */
+.printer-bed {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 180px;
+  height: 10px;
+  background: linear-gradient(90deg, #1aff8c, #00cfff);
+  border-radius: 6px;
+}
+
+/* Cabeça */
+.printer-head {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 40px;
+  height: 14px;
+  background: #ff2fd6;
+  border-radius: 4px;
+
+  animation: headMove 3s linear infinite;
+}
+
+/* Camada a ser impressa */
+.print-layer {
+  position: absolute;
+  bottom: 32px;
+  left: 30px;
+  height: 4px;
+  width: 0;
+  background: #1aff8c;
+  border-radius: 2px;
+
+  animation: layerGrow 3s linear infinite;
+}
+
+/* Animações */
+@keyframes headMove {
+  0% {
+    left: 30px;
+  }
+  50% {
+    left: 150px;
+  }
+  100% {
+    left: 30px;
+  }
+}
+
+@keyframes layerGrow {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  50% {
+    width: 120px;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
